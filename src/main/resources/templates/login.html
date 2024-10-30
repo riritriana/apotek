@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="login-container">
+        <h2 class="login-title">Login</h2>
+
+        <form class="login-form" th:action="@{/cek-login}" method="post">
+            <label class="form-label-login">Username:</label>
+            <input class="form-input-login" type="text" name="username" placeholder="Enter username" required>
+            <br>
+            <label class="form-label-login">Password:</label>
+            <input class="form-input-login" type="password" name="password" placeholder="Enter password" required>
+            <br>
+            <button class="login-button" type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
