@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Category</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    </head>
+
+    <body>
+        <div class="container1">
+            <div class="header">
+                <h1 class="title">List Category</h1>
+                <a class="add-button" th:href="@{/add-category}">Add New Category</a>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="table-header">ID</th>
+                        <th class="table-header">Category Name</th>
+                        <th class="table-header">Description</th>
+                        <th class="table-header">Actions</th>
+                    </tr>    
+                </thead>
+                <tbody>
+                    <tr th:each=" category: ${category}">
+                        <td class="table-data" th:text="${category.id}"></td>
+                        <td class="table-data" th:text="${category.name}"></td>
+                        <td class="table-data" th:text="${category.description}"></td>
+                        <td class="table-data">
+                            <a class="update-button"  th:href="@{/update-category/{id}(id=${category.id})}">Update</a>
+                            <a class="delete-button"  th:href="@{/delete-category/{id}(id=${category.id})}">Delete</a>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a th:href="@{/home}">List Obat</a>
+            <a th:href="@{/list-supplier}">List Supplier</a>
+           
+        
+        </div>
+    </body>
+</html>

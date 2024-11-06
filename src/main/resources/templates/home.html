@@ -9,7 +9,7 @@
         <div class="container1">
             <div class="header">
                 <h1 class="title">List Obat</h1>
-                <a class="add-button" th:href="@{/obat/add-obat}">Add New Obat</a>
+                <a class="add-button" th:href="@{/add-obat}">Add New Obat</a>
             </div>
             
             <table class="table">
@@ -19,6 +19,11 @@
                         <th class="table-header">Name</th>
                         <th class="table-header">Price</th>
                         <th class="table-header">Description</th>
+                        <th class="table-header">Category Name</th>
+                
+                        <th class="table-header">Supplier Name</th>
+                        <th class="table-header">Supplier Phone</th>
+
                         <th class="table-header">Actions</th>
                     </tr>
                 </thead>
@@ -28,15 +33,23 @@
                         <td class="table-data" th:text="${obat.namaObat}"></td>
                         <td class="table-data" th:text="${obat.price}"></td>
                         <td class="table-data" th:text="${obat.description}"></td>
+                        <td class="table-data" th:text="${obat.category != null ? obat.category.name : '-'}"></td>
+                        <td class="table-data" th:text="${obat.supplier != null ? obat.supplier.name : '-'}"></td>
+                        <td class="table-data" th:text="${obat.supplier != null ? obat.supplier.phone : '-'}"></td>
                         <td>
-                            <form th:action="@{/obat/delete-obat/{id}(id=${obat.id})}" method="post" style="display: inline;">
-                                <button class="delete-button" type="submit" 
-                                        onclick="return confirm('Are you sure you want to delete this item?')">Delete</button>
+                            <!-- Form untuk Delete -->
+                            <form th:action="@{/delete-obat/{id}(id=${obat.id})}" method="post" style="display: inline;">
+                                <button type="submit" class="delete-button">Delete</button>
                             </form>
+                            
+                            <!-- Link untuk Update -->
+                            <a th:href="@{/update-obat/{id}(id=${obat.id})}" class="update-button">Update</a>
                         </td>
-                    </tr>
+                        </tr>
                 </tbody>
             </table>
+            <a class="back-link" th:href="@{/list-category}">List Category</a>
+            <a class="back-link" th:href="@{/list-supplier}">List Supplier</a>
         </div>
     </body>
 </html>

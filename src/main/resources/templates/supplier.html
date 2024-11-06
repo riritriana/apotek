@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>supplier</title>
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    </head>
+
+    <body>
+        <div class="container1">
+            <div class="header">
+                <h1 class="title">List supplier</h1>
+                <a class="add-button" th:href="@{/add-supplier}">Add New supplier</a>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="table-header">ID</th>
+                        <th class="table-header">supplier Name</th>
+                        <th class="table-header">Address</th>
+                        <th class="table-header">Phone</th>
+                        <th class="table-header">Actions</th>
+                    </tr>    
+                </thead>
+                <tbody>
+                    <tr th:each=" supplier: ${supplier}">
+                        <td class="table-data" th:text="${supplier.id}"></td>
+                        <td class="table-data" th:text="${supplier.name}"></td>
+                        <td class="table-data" th:text="${supplier.address}"></td>
+                        <td class="table-data" th:text="${supplier.phone}"></td>
+
+                        <td class="table-data">
+                            <a class="update-button" th:href="@{/update-supplier/{id}(id=${supplier.id})}">Update</a>
+                            <a class="delete-button" th:href="@{/delete-supplier/{id}(id=${supplier.id})}">Delete</a>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a th:href="@{/home}">List Obat</a>
+            <a th:href="@{/list-category}">List Category</a>
+           
+        
+        </div>
+    </body>
+</html>

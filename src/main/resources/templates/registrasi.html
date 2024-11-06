@@ -13,7 +13,9 @@
             <input class="form-input-register" type="text" th:field="${regis.username}" placeholder="Masukkan username" required>
             <label class="form-label-register">Password:</label>
             <input class="form-input-register" type="password" th:field="${regis.password}" placeholder="Masukkan password" required>
-            <button class="registration-button" type="submit">Submit Registrasi</button>
+            <button class="registration-button" type="submit">Submit </button>
+           <a class="registration-button" th:href="@{/login}">Login</a>
+           
         </form>
     </div>
 </body>
