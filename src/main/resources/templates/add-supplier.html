@@ -9,15 +9,21 @@
     <body>
       <div class="container">
         <h1 class="title">Add supplier</h1>
-        <form th:action="@{/save-supplier}" th:object="${supplier}" method="post">
+        <form class="obat-form" th:action="@{/save-supplier}" th:object="${supplier}" method="post">
+          <div  class="form-group">
             <label for="name">supplier Name</label>
             <input type="text" id="name" th:field="*{name}" required>
+
+          </div>
+          <div class="form-group">
             <label for="address">Address</label>
             <input type="text" id="address" th:field="*{address}" required>
-            <label for="">
-              Phone
-            </label>
+
+          </div>
+          <div class="form-group" >
+            <label for="phone"> Phone</label>
             <input type="text" id="phone" th:field="*{phone}" required>
+          </div>
             <button type="submit">save</button>
             <a href="/list-supplier">Back to supplier List</a>
         </form>
