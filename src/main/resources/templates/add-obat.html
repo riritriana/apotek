@@ -7,7 +7,7 @@
     <body>
         <div class="container">
             <h1 class="title">Add Obat</h1>
-            <form class="obat-form" th:action="@{/save-obat}" th:object="${obat}" method="POST">
+            <form class="obat-form" th:action="@{/save-obat}" th:object="${obat}" method="post">
                 <div class="form-group">
                     <label class="form-label" for="namaObat">Name Obat:</label>
                     <input class="form-input" th:field="*{namaObat}" type="text" id="namaObat" name="namaObat" placeholder="Enter name obat" required>
@@ -38,7 +38,7 @@
                 </div>
                                 
                 <button class="submit-button" type="submit">Save</button>
-                <a class="back-link" th:href="@{/home}">Back To List</a>
+                <a class="back-link submit-button" th:href="@{/home}">Back To List</a>
             </form>
         </div>
     </body>
